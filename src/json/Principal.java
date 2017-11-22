@@ -50,12 +50,12 @@ public class Principal {
 		// Parser
 		JsonParser jParser = new JsonParser();
 		JsonElement personasArray = jParser.parse(json);
-		System.out.println("::::: PERSONAS ARRAY"+personasArray);
+		System.out.println("::::: PERSONAS ARRAY: "+personasArray.getClass()+" "+personasArray);
 		if (personasArray.isJsonArray()) {
 			for (int i = 0; i < personasArray.getAsJsonArray().size(); i++) {
-				System.out.println("\n::::: PERSONA ELEMENT: "+personasArray.getAsJsonArray().get(i));
+				System.out.println("\n::::: PERSONA ELEMENT: "+personasArray.getAsJsonArray().get(i).getClass()+" "+personasArray.getAsJsonArray().get(i));
 				JsonElement telefonosArray = jParser.parse(((JsonObject) personasArray.getAsJsonArray().get(i)).get("telefonos").toString());
-				System.out.println("::::: TELEFONOS ARRAY: "+telefonosArray);
+				System.out.println("::::: TELEFONOS ARRAY: "+telefonosArray.getClass()+" "+telefonosArray);
 				if (telefonosArray.isJsonArray()) {
 					for (int j = 0; j < telefonosArray.getAsJsonArray().size(); j++) {
 						System.out.println("::::: TELEFONO ELEMENT: "+telefonosArray.getAsJsonArray().get(j));
